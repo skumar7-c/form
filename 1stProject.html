@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Family Registration</title>
+  <style>
+    body {
+      margin: 0;
+      padding:0;
+      background: #f0f0f0;
+      text-align: center;
+      font-family: 'Arial Narrow', Arial, sans-serif;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .form-section {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 4px solid #9c1212;
+      border-radius: 17px;
+      position: relative;
+    }
+
+    header{
+      font-family: 'Times New Roman', Times, serif;
+      background-color: rgb(134, 236, 113);
+      height: 50px;
+      width: auto;
+      align-content: center;
+      color: #8b0b78;
+      font-size: 30px;
+      font-weight: bolder;
+      border: rgb(89, 8, 219) ,4px , solid ;
+      border-radius: 17px;
+    }
+    label {
+      display: block;
+      margin: 5px 0 2px; 
+      height: 40px;
+    }
+    input, select {
+      width: 50%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+
+    textarea{
+      height: auto;
+      width: 50%;
+    }
+    .gender-options{
+      display: flex;
+      gap: 15px; 
+      margin-top: -25px;
+      justify-content: center;
+    }
+
+    #confirmCheck{
+  text-align: center;
+  gap:10px;
+  margin-left:25%;
+  align-items: center;
+  display: flex;
+  margin-bottom:1px;
+  margin-top: 22px;
+  justify-content: center;}
+
+    .gender-options label{
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 15px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .remove-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #dc3545;
+    }
+    .remove-btn:hover {
+      background: #a71d2a;
+    }
+
+  .profile-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .profile-pic-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+  }
+
+  .profile-pic-container input[type="file"] {
+    display: none;
+  }
+
+  .profile-label {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/149/149071.png');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s;
+  }
+
+  .profile-label:hover {
+    opacity: 0.8;
+  }
+
+  .profile-overlay-icon {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border-radius: 50%;
+    padding: 6px;
+    border: 1px solid #ccc;
+  }
+
+  .profile-overlay-icon img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .profile-upload-note {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 8px;
+  }
+  </style>
+</head>
+<body>
+<form  
+action="/submit-form" method="POST" enctype="multipart/form-data" >
+  
+      <div> 
+          <header><marquee>Welcome</marquee></header>
+
+      </div>
+
+
+    <div class="form-section">
+    <h4 style="color: #964114;"> Personal Information</h4>
+<div class="profile-section">
+  <div class="profile-pic-container">
+    <input type="file" id="profileImage"   name="files"  accept="image/*" onchange="loadProfileImage(this)" required>
+    <label for="profileImage" class="profile-label" id="imagePreview" required></label>
+    <div class="profile-overlay-icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="Upload Icon" required>
+    </div>
+  </div>
+  <div class="profile-upload-note"></div>
+</div>
+
+
+      <label> Name of family Head:</label>
+      <input type="text"  name="value" required>
+         
+      <label>Gender:</label>
+      <div class="gender-options">
+      <label><input type="radio" name="gender" value="Male" required checked> Male</label>
+      <label><input type="radio" name="gender" value="Female"> Female</label> </div>
+
+      <label>Date of Birth:</label>
+      <input type="date"  name="dob" required>
+
+      <label>Phone Number:</label>
+      <input type="number"  name="phone" value="phone" required/>
+
+      <label>Enter your email:</label>
+      <input type="email"  name="email" value="" required/>
+
+      <label>Enter your city:</label>
+      <input type="text" name="city" required/>
+
+      <label>Locality:</label>
+      <select name="locality[]">
+        <option value="">Select</option>
+        <option>Gangarar</option>
+        <option>Chanderiya</option>
+        <option>Chittorgarh</option>
+        <option>Bhilwara</option>
+        <option>Pratap Nagar</option>
+        <option>Aajad Nagar</option>
+        <option>Hamirgarh</option>
+        <option>Soniyana</option>
+        <option>Shastri Nagar</option>
+        <option>Subhash Nagar</option>
+        <option>Bhawanipura</option>
+        <option>Det</option>
+        <option>shivpura</option>
+        <option>Other</option>
+      </select>
+      <label>Occupation:</label>
+      <input type="text" name="occupation[]" required>
+
+      <label>Gotra:</label>
+      <input type="text" name="gotra">
+     
+      <label>Native Place:</label>
+      <input type="text" placeholder="Enter your native Place...">
+
+          <label>Blood Group(Optional):</label>
+          <select name="bloodGroup[]" required>
+          <option value="">Select</option>
+          <option>A-</option>
+          <option>A+</option>
+          <option>B-</option>
+          <option>B+</option>
+          <option>AB-</option>
+          <option>AB+</option>
+          <option>O+</option>
+          <option>O-</option>
+            </select>
+<label >Full Address:</label>
+<textarea  type="text" placeholder="Enter your full address..." ></textarea>
+    </div>
+
+    <div class="member-wrapper" id="member-wrapper">
+      <h3 style="color: rgb(22, 80, 4);">Family Member Details</h3>
+    </div>
+
+    <button type="button" onclick="addFamilyMember()">+ Add Member</button>
+
+    <div>
+      <label><input type="checkbox" id="confirmCheck" required> I confirm all information is accurate.</label>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+
+
+
+  <script>
+    let memberId = 0;
+
+    function addFamilyMember() {
+      memberId++;
+      const wrapper = document.getElementById("member-wrapper");
+      const div = document.createElement("div");
+      div.className = "form-section";
+      div.setAttribute("id", "member-" + memberId);
+      div.innerHTML = `
+        <button type="button" class="remove-btn" onclick="removeMember('member-${memberId}')">Remove</button>
+        <h4>Member #${memberId}</h4>
+        <label>Name:</label>
+        <input type="text" name="memberName[]" required>
+        <label>Relation:</label>
+        <input type="text" name="relation[]" required>
+
+
+        <label>Age:</label>
+        <input type="number" name="age[]" min="0" required>
+        <label>Marital Status:</label>
+        <select name="maritalStatus[]" required>
+          <option value="">Select</option>
+          <option>Unmarried</option>
+          <option>Married</option>
+          <option>Widowed</option>
+          <option>Divorced</option>
+        </select>
+
+        <label>Blood Group:</label>
+        <select name="bloodGroup[]" required>
+          <option value="">Select</option>
+          <option>A+</option><option>A-</option>
+          <option>B+</option><option>B-</option>
+          <option>O+</option><option>O-</option>
+          <option>AB+</option><option>AB-</option>
+        </select>
+
+        <label>Qualification:</label>
+       <select name="qualification" required />
+       <option value="Select">Select</option>
+       <option>Illiterate</option>
+      <option>Below 10th</option>
+      <option>Matriculation(10th) </option>
+      <option>Higher Secondary(10+2)</option>
+      <option>Diploma</option>
+      <option>Graduation</option>
+      <option>Post Graduation</option>
+      <option>Ph.D</option>
+</select>
+
+        <label>Occupation:</label>
+        <input type="text" name="occupation[]">
+      `;
+      wrapper.appendChild(div);
+    }
+
+    function removeMember(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.remove();
+      }
+    }
+
+    function validateForm() {
+      const check = document.getElementById("confirmCheck");
+      if (!check.checked) {
+        alert("Please confirm the checkbox before submitting.");
+        return false;
+      }
+      return true;
+    }
+//profile image
+  function loadProfileImage(input) {
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const preview = document.getElementById('imagePreview');
+        preview.style.backgroundImage = `url('${e.target.result}')`;
+        preview.style.backgroundSize = "cover";
+        preview.style.backgroundPosition = "center";
+        preview.style.border = "none";
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+
+  // backend part
+function submitForm(event) {
+  event.preventDefault();
+
+  const form = document.querySelector('form');
+  const formData = new FormData(form);
+
+  // Collect dynamic member data
+  const members = [];
+  document.querySelectorAll('#member-wrapper .form-section').forEach(section => {
+    const name = section.querySelector('input[name="memberName[]"]').value;
+    const relation = section.querySelector('input[name="relation[]"]').value;
+    const age = section.querySelector('input[name="age[]"]').value;
+    const maritalStatus = section.querySelector('select[name="maritalStatus[]"]').value;
+    const bloodGroup = section.querySelector('select[name="bloodGroup[]"]').value;
+    const qualification = section.querySelector('select[name="qualification"]').value;
+    const occupation = section.querySelector('input[name="occupation[]"]').value;
+    
+    members.push({ name, relation, age, maritalStatus, bloodGroup, qualification, occupation });
+  });
+
+  formData.append('members', JSON.stringify(members));
+
+  fetch('http://localhost:5000/sunbmit', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert(data.message || 'Submitted!');
+    form.reset();
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Error submitting form.');
+  });
+
+  return false;
+}
+
+  </script>
+</body>
+</html>

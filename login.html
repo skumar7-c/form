@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Form</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif ,;
+    }
+
+    body {
+      background: linear-gradient(120deg, #4e54c8, #8f94fb);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      width: 350px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .input-group input:focus {
+      border-color: #4e54c8;
+      outline: none;
+    }
+
+    .btn {
+      width: 100%;
+      background: #4e54c8;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #3b3f99;
+    }
+
+    .bottom-text {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .bottom-text a {
+      color: #4e54c8;
+      text-decoration: none;
+    }
+
+    .bottom-text a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+    <form>
+      <div class="input-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter username" required />
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter password" required />
+      </div>
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </div>
+</body>
+</html>
